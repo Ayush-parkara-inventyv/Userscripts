@@ -9,10 +9,13 @@
 // @grant        none
 // @run-at       document-start
 // ==/UserScript==
-
-(function() {
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+(async function() {
     'use strict';
     const currentUrl = window.location.href;
     const newurl = "https://archive.is/" + encodeURIComponent(currentUrl);
+    await sleep(4000);
     window.location.href = newurl;
 })();
